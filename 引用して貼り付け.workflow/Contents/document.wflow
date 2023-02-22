@@ -77,8 +77,6 @@
 				</array>
 				<key>arguments</key>
 				<dict/>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
@@ -136,7 +134,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>COMMAND_STRING</key>
-					<string>~/CotEditor-Script/行頭に引用記号追加.py</string>
+					<string>~/CotEditor-Script/Add\ quotation\ marks\ at\ beginning\ of\ lines.py</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
 					<key>inputMethod</key>
@@ -251,7 +249,7 @@
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>309.000000:606.000000</string>
+				<string>309.000000:370.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -261,7 +259,7 @@
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>B813B75F-5105-4DA6-80BA-2C9141D1D162</key>
+		<key>8230ED73-EE07-4888-B452-0EBC378291F5</key>
 		<dict>
 			<key>from</key>
 			<string>9224611C-5769-406C-9D54-E9DD3D1E614D - 9224611C-5769-406C-9D54-E9DD3D1E614D</string>

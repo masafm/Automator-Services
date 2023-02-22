@@ -59,7 +59,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>COMMAND_STRING</key>
-					<string>~/CotEditor-Script/DeepLで翻訳.py --lang JA</string>
+					<string>~/CotEditor-Script/Translate\ by\ DeepL.py --lang JA</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
 					<key>inputMethod</key>
