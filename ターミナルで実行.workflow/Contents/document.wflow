@@ -59,7 +59,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>COMMAND_STRING</key>
-					<string>cot=/Applications/CotEditor.app/Contents/SharedSupport/bin/cot;in=$(mktemp);out=$(mktemp);cat &gt;"$in";$cot -w "$in";(echo "\$ $(cat "$in")"; zsh "$in") &gt;"$out";$cot "$out";rm -f "$file"</string>
+					<string>cot="/Applications/CotEditor.app/Contents/SharedSupport/bin/cot";PATH="/usr/local/bin:/opt/homebrew/bin:$PATH";dir=$(mktemp -d);in=${dir}/in.sh;out=${dir}/out.txt;cat &gt;"$in";$cot -w "$in";osascript -e 'tell app "Terminal" to do script "zsh -x \"'$in'\" 2&gt;&amp;1 | tee \"'$out'\"; open \"'$out'\";exit"';</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
 					<key>inputMethod</key>
@@ -169,8 +169,6 @@
 						<string>4</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
