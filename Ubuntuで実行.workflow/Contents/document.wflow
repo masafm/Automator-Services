@@ -67,7 +67,7 @@ out=${dir}/out.txt
 
 cat &gt;"$in"
 $cot -w "$in"
-osascript -e 'tell app "Terminal" to do script "zsh -x \"'$in'\""';</string>
+osascript -e 'tell app "Terminal" to do script "ssh mkashi@ubuntu \"sh -x\"&lt; \"'$in'\""'</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
 					<key>inputMethod</key>
@@ -180,7 +180,7 @@ osascript -e 'tell app "Terminal" to do script "zsh -x \"'$in'\""';</string>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>657.500000:528.000000</string>
+				<string>657.500000:446.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
