@@ -60,14 +60,18 @@
 				<dict>
 					<key>COMMAND_STRING</key>
 					<string>PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
-cot="/Applications/CotEditor.app/Contents/SharedSupport/bin/cot"
+code="/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
 dir=$(mktemp -d)
 in=${dir}/in.sh
 out=${dir}/out.txt
 
 cat &gt;"$in"
-$cot -w "$in"
-osascript -e 'tell app "Terminal" to do script "ssh mkashi@ubuntu \"sh -x\"&lt; \"'$in'\""'</string>
+$code -w "$in"
+script -r "$out" ssh mkashi@mac-ubuntu &lt;&lt;EOD &amp;
+$(&lt;$in)
+EOD
+osascript -e 'tell app "Terminal" to do script "script -p \"'$out'\""';
+</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
 					<key>inputMethod</key>
@@ -180,7 +184,7 @@ osascript -e 'tell app "Terminal" to do script "ssh mkashi@ubuntu \"sh -x\"&lt; 
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>657.500000:446.000000</string>
+				<string>565.000000:554.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>

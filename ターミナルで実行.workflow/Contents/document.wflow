@@ -60,13 +60,13 @@
 				<dict>
 					<key>COMMAND_STRING</key>
 					<string>PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
-cot="/Applications/CotEditor.app/Contents/SharedSupport/bin/cot"
+code="/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
 dir=$(mktemp -d)
 in=${dir}/in.sh
 out=${dir}/out.txt
 
 cat &gt;"$in"
-$cot -w "$in"
+$code -w "$in"
 script -r "$out" &lt;&lt;EOD &amp;
 setopt interactivecomments
 $(&lt;$in)
@@ -185,7 +185,7 @@ osascript -e 'tell app "Terminal" to do script "script -p \"'$out'\""';
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>729.500000:577.000000</string>
+				<string>565.000000:559.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
