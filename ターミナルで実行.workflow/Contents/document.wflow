@@ -67,7 +67,12 @@ out=${dir}/out.txt
 
 cat &gt;"$in"
 $cot -w "$in"
-osascript -e 'tell app "Terminal" to do script "zsh -x \"'$in'\""';</string>
+script -r "$out" &lt;&lt;EOD &amp;
+setopt interactivecomments
+$(&lt;$in)
+EOD
+osascript -e 'tell app "Terminal" to do script "script -p \"'$out'\""';
+</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
 					<key>inputMethod</key>
@@ -180,7 +185,7 @@ osascript -e 'tell app "Terminal" to do script "zsh -x \"'$in'\""';</string>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>657.500000:528.000000</string>
+				<string>729.500000:577.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
