@@ -67,11 +67,11 @@ out=${dir}/out.txt
 
 cat &gt;"$in"
 $code -w "$in"
-script -r "$out" &lt;&lt;EOD &amp;
+zsh -x &lt;&lt;EOD 2&amp;&gt;1 &gt;"$out" &amp;
 setopt interactivecomments
 $(&lt;$in)
 EOD
-osascript -e 'tell app "Terminal" to do script "script -p \"'$out'\""';
+osascript -e 'tell app "Terminal" to do script "tail -f -n+1 \"'$out'\""';
 </string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
@@ -185,7 +185,7 @@ osascript -e 'tell app "Terminal" to do script "script -p \"'$out'\""';
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>565.000000:559.000000</string>
+				<string>663.500000:614.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
