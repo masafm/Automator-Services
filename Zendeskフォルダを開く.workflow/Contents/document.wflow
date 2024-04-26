@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>AMApplicationBuild</key>
-	<string>521.1</string>
+	<string>523</string>
 	<key>AMApplicationVersion</key>
 	<string>2.10</string>
 	<key>AMDocumentVersion</key>
@@ -59,8 +59,8 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>COMMAND_STRING</key>
-					<string>code="/usr/local/bin/code"
-$code $(~/bin/save-open-text.py)</string>
+					<string>export LANG=ja_JP.UTF-8
+~/bin/zd.sh</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
 					<key>inputMethod</key>
@@ -85,7 +85,7 @@ $code $(~/bin/save-open-text.py)</string>
 				<key>Class Name</key>
 				<string>RunShellScriptAction</string>
 				<key>InputUUID</key>
-				<string>C715EE14-0AAE-4C45-8F90-D383158420A5</string>
+				<string>9DE6021F-DF8D-4F64-8F3B-CEAE3B223654</string>
 				<key>Keywords</key>
 				<array>
 					<string>シェル</string>
@@ -95,9 +95,9 @@ $code $(~/bin/save-open-text.py)</string>
 					<string>UNIX</string>
 				</array>
 				<key>OutputUUID</key>
-				<string>7866B703-E63C-45DA-AEB7-5F5C65D90531</string>
+				<string>CF26B19B-FE70-45B0-8ACE-BC80B9951800</string>
 				<key>UUID</key>
-				<string>22BAB7B5-7C09-4D7F-834D-E8418F84D072</string>
+				<string>16CC2865-64E8-4203-982D-A1DB548A5D59</string>
 				<key>UnlocalizedApplications</key>
 				<array>
 					<string>Automator</string>
@@ -173,7 +173,7 @@ $code $(~/bin/save-open-text.py)</string>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>536.500000:305.000000</string>
+				<string>536.500000:361.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -206,7 +206,7 @@ $code $(~/bin/save-open-text.py)</string>
 		<key>systemImageName</key>
 		<string>NSActionTemplate</string>
 		<key>useAutomaticInputType</key>
-		<false/>
+		<true/>
 		<key>workflowTypeIdentifier</key>
 		<string>com.apple.Automator.servicesMenu</string>
 	</dict>
