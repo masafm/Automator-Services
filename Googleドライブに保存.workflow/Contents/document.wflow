@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>AMApplicationBuild</key>
-	<string>520</string>
+	<string>523.1</string>
 	<key>AMApplicationVersion</key>
 	<string>2.10</string>
 	<key>AMDocumentVersion</key>
@@ -21,25 +21,17 @@
 					<true/>
 					<key>Types</key>
 					<array>
-						<string>com.apple.cocoa.string</string>
+						<string>com.apple.applescript.object</string>
 					</array>
 				</dict>
 				<key>AMActionVersion</key>
-				<string>2.0.3</string>
+				<string>1.0.2</string>
 				<key>AMApplication</key>
 				<array>
 					<string>Automator</string>
 				</array>
 				<key>AMParameterProperties</key>
 				<dict>
-					<key>COMMAND_STRING</key>
-					<dict/>
-					<key>CheckedForUserDefaultShell</key>
-					<dict/>
-					<key>inputMethod</key>
-					<dict/>
-					<key>shell</key>
-					<dict/>
 					<key>source</key>
 					<dict/>
 				</dict>
@@ -49,30 +41,47 @@
 					<string>List</string>
 					<key>Types</key>
 					<array>
-						<string>com.apple.cocoa.string</string>
+						<string>com.apple.applescript.object</string>
 					</array>
 				</dict>
 				<key>ActionBundlePath</key>
-				<string>/System/Library/Automator/Run Shell Script.action</string>
+				<string>/System/Library/Automator/Run AppleScript.action</string>
 				<key>ActionName</key>
-				<string>シェルスクリプトを実行</string>
+				<string>AppleScriptを実行</string>
 				<key>ActionParameters</key>
 				<dict>
-					<key>COMMAND_STRING</key>
-					<string>open "https://www.google.com/search?q=$1"</string>
-					<key>CheckedForUserDefaultShell</key>
-					<true/>
-					<key>inputMethod</key>
-					<integer>1</integer>
-					<key>shell</key>
-					<string>/bin/zsh</string>
 					<key>source</key>
-					<string></string>
+					<string>on run {input, parameters}
+    -- 今日の日付を取得して、YYYYMMDD形式に変換
+    set currentDate to do shell script "date +%Y%m%d"
+    
+    -- Google Driveのローカルフォルダパスを設定
+    set googleDriveFolder to "/Users/mkashi/Library/CloudStorage/GoogleDrive-masafumi.kashiwagi@datadoghq.com/マイドライブ/"
+    
+    -- 今日の日付フォルダのパスを作成
+    set dateFolder to googleDriveFolder &amp; currentDate &amp; "/"
+    
+    -- 日付フォルダが存在しなければ作成
+    do shell script "mkdir -p " &amp; quoted form of dateFolder
+    
+    -- 選択されたファイルを日付フォルダにコピー
+    set theFile to POSIX path of (item 1 of input)
+    do shell script "cp " &amp; quoted form of theFile &amp; " " &amp; quoted form of dateFolder
+    
+    -- Google Driveのウェブページで該当の日付フォルダを開くURLを生成
+    set driveURL to "https://drive.google.com/drive/my-drive"
+    
+    -- Google Chromeでそのフォルダを開く
+    tell application "Google Chrome"
+        activate
+        open location driveURL
+    end tell
+end run</string>
 				</dict>
 				<key>BundleIdentifier</key>
-				<string>com.apple.RunShellScript</string>
+				<string>com.apple.Automator.RunScript</string>
 				<key>CFBundleVersion</key>
-				<string>2.0.3</string>
+				<string>1.0.2</string>
 				<key>CanShowSelectedItemsWhenRun</key>
 				<false/>
 				<key>CanShowWhenRun</key>
@@ -82,21 +91,17 @@
 					<string>AMCategoryUtilities</string>
 				</array>
 				<key>Class Name</key>
-				<string>RunShellScriptAction</string>
+				<string>RunScriptAction</string>
 				<key>InputUUID</key>
-				<string>9982ADBF-1C5E-408F-8A5C-BF0A482B54A5</string>
+				<string>DF1CBE09-76A5-412A-B594-80524E9A762C</string>
 				<key>Keywords</key>
 				<array>
-					<string>シェル</string>
-					<string>スクリプト</string>
-					<string>コマンド</string>
 					<string>実行</string>
-					<string>UNIX</string>
 				</array>
 				<key>OutputUUID</key>
-				<string>F927F2F0-B9BB-4722-A93B-B6BED6AD9420</string>
+				<string>5F17118A-1702-477B-996B-ECC4CD285D28</string>
 				<key>UUID</key>
-				<string>926FEFC9-AC5C-4DDB-829C-7689348AF383</string>
+				<string>E84DB7F7-B220-4BFD-9502-AD9B63A021CC</string>
 				<key>UnlocalizedApplications</key>
 				<array>
 					<string>Automator</string>
@@ -106,33 +111,12 @@
 					<key>0</key>
 					<dict>
 						<key>default value</key>
-						<integer>0</integer>
-						<key>name</key>
-						<string>inputMethod</string>
-						<key>required</key>
-						<string>0</string>
-						<key>type</key>
-						<string>0</string>
-						<key>uuid</key>
-						<string>0</string>
-					</dict>
-					<key>1</key>
-					<dict>
-						<key>default value</key>
-						<false/>
-						<key>name</key>
-						<string>CheckedForUserDefaultShell</string>
-						<key>required</key>
-						<string>0</string>
-						<key>type</key>
-						<string>0</string>
-						<key>uuid</key>
-						<string>1</string>
-					</dict>
-					<key>2</key>
-					<dict>
-						<key>default value</key>
-						<string></string>
+						<string>on run {input, parameters}
+	
+	(* Your script goes here *)
+	
+	return input
+end run</string>
 						<key>name</key>
 						<string>source</string>
 						<key>required</key>
@@ -140,33 +124,7 @@
 						<key>type</key>
 						<string>0</string>
 						<key>uuid</key>
-						<string>2</string>
-					</dict>
-					<key>3</key>
-					<dict>
-						<key>default value</key>
-						<string></string>
-						<key>name</key>
-						<string>COMMAND_STRING</string>
-						<key>required</key>
 						<string>0</string>
-						<key>type</key>
-						<string>0</string>
-						<key>uuid</key>
-						<string>3</string>
-					</dict>
-					<key>4</key>
-					<dict>
-						<key>default value</key>
-						<string>/bin/sh</string>
-						<key>name</key>
-						<string>shell</string>
-						<key>required</key>
-						<string>0</string>
-						<key>type</key>
-						<string>0</string>
-						<key>uuid</key>
-						<string>4</string>
 					</dict>
 				</dict>
 				<key>conversionLabel</key>
@@ -174,9 +132,9 @@
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>309.000000:361.000000</string>
+				<string>637.500000:765.000000</string>
 				<key>nibPath</key>
-				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
+				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
 			<key>isViewVisible</key>
 			<integer>1</integer>
@@ -191,15 +149,15 @@
 		<key>applicationPaths</key>
 		<array/>
 		<key>inputTypeIdentifier</key>
-		<string>com.apple.Automator.text</string>
+		<string>com.apple.Automator.fileSystemObject</string>
 		<key>outputTypeIdentifier</key>
 		<string>com.apple.Automator.nothing</string>
 		<key>presentationMode</key>
-		<integer>11</integer>
+		<integer>15</integer>
 		<key>processesInput</key>
 		<false/>
 		<key>serviceInputTypeIdentifier</key>
-		<string>com.apple.Automator.text</string>
+		<string>com.apple.Automator.fileSystemObject</string>
 		<key>serviceOutputTypeIdentifier</key>
 		<string>com.apple.Automator.nothing</string>
 		<key>serviceProcessesInput</key>

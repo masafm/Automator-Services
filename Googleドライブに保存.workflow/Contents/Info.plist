@@ -12,13 +12,13 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>Ubuntuで実行</string>
+				<string>Googleドライブに保存</string>
 			</dict>
 			<key>NSMessage</key>
 			<string>runWorkflowAsService</string>
-			<key>NSSendTypes</key>
+			<key>NSSendFileTypes</key>
 			<array>
-				<string>public.utf8-plain-text</string>
+				<string>public.item</string>
 			</array>
 		</dict>
 	</array>
